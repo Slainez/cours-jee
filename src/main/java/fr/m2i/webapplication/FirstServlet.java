@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class FirstServlet extends HttpServlet {
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -19,8 +20,7 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        getServletContext().getRequestDispatcher("/first.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/first.jsp").forward(request, response);
     }
 
     /**
@@ -46,5 +46,4 @@ public class FirstServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }
