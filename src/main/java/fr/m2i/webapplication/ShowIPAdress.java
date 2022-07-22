@@ -1,13 +1,25 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package fr.m2i.webapplication;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author moi
+ */
+public class ShowIPAdress extends HttpServlet {
 
-public class FirstServlet extends HttpServlet {
+   
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -19,8 +31,11 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               
-        getServletContext().getRequestDispatcher("/first.jsp?name=Sullyvan").forward(request,response);
+        
+                String adressIP = request.getRemoteAddr();
+                getServletContext().getRequestDispatcher("/showIpAdress.jsp?name=Sullyvan").forward(request,response);
+                request.setAttribute("adressIP",adressIP);
+
         
     }
 
@@ -35,7 +50,6 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         super.doPost(request, response);
     }
 
@@ -47,6 +61,6 @@ public class FirstServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

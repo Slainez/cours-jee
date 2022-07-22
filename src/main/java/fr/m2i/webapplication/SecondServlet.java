@@ -40,7 +40,7 @@ public class SecondServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/second.jsp").forward(request,response);
+        getServletContext().getRequestDispatcher("/second.jsp?name=Sullyvan").forward(request,response);
     }
 
     /**
