@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,9 +6,9 @@
         <title>Show IP Adress </title>
     </head>
     <body>
-        <h1>Bienvenue <%= request.getParameter("name") %> !</h1>
+        <h1>Bienvenue ${clientName}  !</h1>
         <div> Votre adresse Ip est :  <%= request.getRemoteAddr() %>  </div>
-        <div> Votre adresse Ip est :  <%= request.getAttribute("adressIP") %>  </div>
+        <div> Votre adresse Ip est : ${adressIP} </div>
         
         
     </body>

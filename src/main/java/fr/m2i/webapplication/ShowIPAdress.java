@@ -33,8 +33,10 @@ public class ShowIPAdress extends HttpServlet {
             throws ServletException, IOException {
         
                 String adressIP = request.getRemoteAddr();
-                getServletContext().getRequestDispatcher("/showIpAdress.jsp?name=Sullyvan").forward(request,response);
+                request.setAttribute("clientName","Sullyvan");
                 request.setAttribute("adressIP",adressIP);
+                getServletContext().getRequestDispatcher("/showIpAdress.jsp").forward(request,response);
+                
 
         
     }
