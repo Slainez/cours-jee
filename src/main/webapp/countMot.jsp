@@ -5,12 +5,13 @@
     <body>
         <h1>Compteur de mots </h1>
         
-        <form method="GET" >
+        <form method="GET"  >
             <label>Inserez une phrase : </label><input type="texte" name="phrase">
             
             <input type="submit" value="Calcul">
             
-            <p>Le nombre de mots est de : ${mot}</p>  
+             
         </form>
+        <p>Le nombre de mots est de : ${mot}</p> 
     </body>
 </html>
