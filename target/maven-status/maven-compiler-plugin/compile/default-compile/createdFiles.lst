@@ -1,4 +1,5 @@
 fr\m2i\webapplication\SecondServlet.class
 fr\m2i\webapplication\ShowRequestHeaders.class
 fr\m2i\webapplication\ShowIPAdress.class
+fr\m2i\webapplication\EvenNumberServlet.class
 fr\m2i\webapplication\FirstServlet.class
