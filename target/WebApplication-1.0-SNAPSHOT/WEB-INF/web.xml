@@ -20,6 +20,10 @@
         <servlet-name>EvenNumberServlet</servlet-name>
         <servlet-class>fr.m2i.webapplication.EvenNumberServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CountWordServlet</servlet-name>
+        <servlet-class>fr.m2i.webapplication.CountWordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>EvenNumberServlet</servlet-name>
         <url-pattern>/EvenNumberServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CountWordServlet</servlet-name>
+        <url-pattern>/CountWordServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
