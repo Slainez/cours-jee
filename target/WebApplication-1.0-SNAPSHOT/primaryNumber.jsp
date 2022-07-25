@@ -21,12 +21,12 @@
                  <input type="number" name="inputNumber" />
                  <input type="submit" name="Calcul"/>
              </form>
-             
+        
          <c:if test="${(number % 1 == 0) && (number % number == 0)}" ><c:out value="${number} est un nombre premier"/></c:if>
          <c:if test="${(number % 1 != 0) || (number % number != 0)}" ><c:out value="${number} n'est pas un nombre premier"/></c:if>
-                      
+        
         </div>
-         
+        
          <div id="etape3">
              
              <form method="GET">
