@@ -13,15 +13,17 @@
         <h2>Liste des produits</h2>
         <table>
             <tr>
-                <th>Id Produit</th>
+                <th>Produit</th>
                 <th>Nom</th>
                 <th>Quantite</th>
                 <th>Prix</th>
             </tr>
          <c:forEach items="${stockList}" var="produit" >
             <tr>
+            <form method="POST" >
                 <td>
-                    <c:out value="${produit.id}" /> 
+                    <label>Appuyez sur le bouton pour acheter :</label>
+                    <input type="submit" value="<c:out value="${produit.id}" />" name="idProduct" />                     
                 </td>
                 <td>
                     <c:out value="${produit.nom}" /> 
@@ -32,11 +34,7 @@
                 <td>
                     <c:out value="${produit.prix}" /> 
                 </td>
-                <td> 
-                    <form method="POST" name="acheterProduit">
-                        <input type="submit" value="Acheter" name="${produit.id}" >            
-                    </form>
-                </td>
+            </form>    
             </tr>            
         </c:forEach>            
         </table>

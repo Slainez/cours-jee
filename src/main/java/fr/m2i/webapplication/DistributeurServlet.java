@@ -42,7 +42,9 @@ public class DistributeurServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String acheterProduit = request.getParameter("acheterProduit");
+        
+        
+        String acheterProduit = request.getParameter("idProduct");
         
         String addCredit = "";
         if(request.getParameter("increaseOne") != null){
@@ -52,22 +54,22 @@ public class DistributeurServlet extends HttpServlet {
         addCredit = request.getParameter("increaseTwo");
         }
         if(acheterProduit != null){
-            distri.commanderProduit(Integer.getInteger(acheterProduit));
+            distri.commanderProduit(Integer.parseInt(acheterProduit));
         }
         
             int montant = 0 ;
             switch(addCredit){
-                case "increaseOne": 
+                case "Ajouter 1 credit": 
                     montant = 1 ;
                     break;
-                case "increaseTwo" :
+                case "Ajouter 2 credit" :
                     montant = 2 ;
                     break;
                 default :
                     montant = 0 ;                  
             }                    
             distri.insererArgent(montant);
-            request.setAttribute("credit",credit);
+            request.setAttribute("credit",distri.getCredit());
             request.setAttribute("stockList",productList); 
             this.getServletContext().getRequestDispatcher("/WEB-INF/distributeurWeb.jsp").forward(request,response);
           
