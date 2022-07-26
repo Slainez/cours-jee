@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="../include/header.jsp" ><jsp:param name="title" value="Distributeur Web" /></jsp:include>
+    <jsp:include page="/include/header.jsp" ><jsp:param name="title" value="Distributeur Web" /></jsp:include>
    
     <body>
         <h1>Distributeur Web</h1>
@@ -43,11 +43,13 @@
         
        
         
-        
-        <form method="POST" name="ajoutCredit">
-            <input type="submit" value="Ajouter 1 credit" name="increaseOne">
-            <input type="submit" value="Ajouter 2 credit" name="increaseTwo">
-        </form>
+        <div class="formAjoutCredit">
+             <form method="POST" >
+                <input type="submit" value="Ajouter 1 credit" name="increaseOne">
+                <input type="submit" value="Ajouter 2 credit" name="increaseTwo">
+            </form>
+        </div>
+       
         
         
     </body>

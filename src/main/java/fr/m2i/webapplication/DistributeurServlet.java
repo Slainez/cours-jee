@@ -43,12 +43,18 @@ public class DistributeurServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String acheterProduit = request.getParameter("acheterProduit");
-        String addCredit = request.getParameter("ajoutCredit");
         
+        String addCredit = "";
+        if(request.getParameter("increaseOne") != null){
+        addCredit = request.getParameter("increaseOne");
+        }
+        if(request.getParameter("increaseTwo") != null){
+        addCredit = request.getParameter("increaseTwo");
+        }
         if(acheterProduit != null){
             distri.commanderProduit(Integer.getInteger(acheterProduit));
         }
-        if(addCredit != null){
+        
             int montant = 0 ;
             switch(addCredit){
                 case "increaseOne": 
@@ -61,13 +67,11 @@ public class DistributeurServlet extends HttpServlet {
                     montant = 0 ;                  
             }                    
             distri.insererArgent(montant);
-            request.setAttribute("credit",credit );
-        }
-        
-        
-       
-        
-    }
+            request.setAttribute("credit",credit);
+            request.setAttribute("stockList",productList); 
+            this.getServletContext().getRequestDispatcher("/WEB-INF/distributeurWeb.jsp").forward(request,response);
+          
+        }  
 
     /**
      * Returns a short description of the servlet.

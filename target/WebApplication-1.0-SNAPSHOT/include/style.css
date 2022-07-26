@@ -1,10 +1,19 @@
+body{
+    text-align: center;
+}
+
 
 table
 {
-    
+    margin: auto;
+   border-collapse: collapse;  
 }
-td 
+td,th 
 {
     border: 1px solid black; 
 }
-
+.formAjoutCredit
+{
+    position: relative;
+    margin-top: 2%;
+}
