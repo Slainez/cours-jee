@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package fr.m2i.webapplication;
-
 import fr.m2i.webapplication.distributeur.Distributeur;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author moi
- */
 public class DistributeurServlet extends HttpServlet {
+
+    private final Distributeur distributeur = Distributeur.getInstance();
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,12 +20,7 @@ public class DistributeurServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Distributeur distributeur = Distributeur.getInstance();
-
-        request.setAttribute("credit", distributeur.getCredit());
-        request.setAttribute("stock", distributeur.getStock());
-
+        setDistributorAttribute(request);
         this.getServletContext().getRequestDispatcher("/WEB-INF/distributor.jsp").forward(request, response);
     }
 
@@ -49,7 +35,43 @@ public class DistributeurServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
+
+        addCredit(request);
+        buyProduct(request);
+        setDistributorAttribute(request);
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/distributor.jsp").forward(request, response);
+    }
+
+    private void addCredit(HttpServletRequest request) {
+
+        String addOne = request.getParameter("addOne");
+        String addTwo = request.getParameter("addTwo");
+
+        if (addOne == null && addTwo == null) {
+            return;
+        }
+
+        int amount = addOne != null ? 1 : 2;
+
+        distributeur.insererArgent(amount);
+        // distributeur.setCredit(distributeur.getCredit() + amount);
+    }
+    
+    private void buyProduct(HttpServletRequest request) {
+
+        String productId = request.getParameter("productId");
+
+        if (productId == null || "".equals(productId)) {
+            return;
+        }
+
+        distributeur.commanderProduit(Integer.parseInt(productId));
+    }
+
+    private void setDistributorAttribute(HttpServletRequest request) {
+        request.setAttribute("credit", distributeur.getCredit());
+        request.setAttribute("stock", distributeur.getStock());
     }
 
     /**
