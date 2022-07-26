@@ -34,9 +34,12 @@
         <form method="POST">
             <fieldset>
                 <legend>Ajouter du crédit</legend>
-                <input type="submit" name="addOne" value="Ajouter 1" />
-                <input type="submit" name="addTwo" value="Ajouter 2" />
+                <input type="number" name="inputAddCredit"  />
+                <input type="submit" name="addCreditSubmit" value="Ajouter" />
             </fieldset>
+                <c:out value="${messageId}" />
+                <c:out value="${message}" />
+            
         </form>
 
         <br />
@@ -47,6 +50,9 @@
                 <input type="number" name="productId" />
                 <input type="submit" value="Acheter"/>
             </fieldset>
+                <c:out value="${messageId}" />
+                <c:out value="${message}" />
+            
         </form>
 
     </body>
