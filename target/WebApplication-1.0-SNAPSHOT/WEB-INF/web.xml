@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--Parametre pour Base de données -->
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPass</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <!--Filters -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>fr.m2i.webapplication.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/HomeServlet</url-pattern>
+    </filter-mapping>
+    <!--Listeners -->
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>fr.m2i.webapplication.listener.LifeCycleListener</listener-class>
+    </listener>
+    <!--Servlet -->
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
         <servlet-class>fr.m2i.webapplication.FirstServlet</servlet-class>
@@ -40,6 +64,11 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>fr.m2i.webapplication.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>fr.m2i.webapplication.HomeServlet</servlet-class>
+    </servlet>
+    <!--Servlet Mapping -->
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
@@ -80,6 +109,11 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeServlet</url-pattern>
+    </servlet-mapping>
+    <!--Session Config -->
     <session-config>
         <session-timeout>
             30
