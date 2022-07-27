@@ -28,7 +28,7 @@ public class LogoutServlet extends HttpServlet {
            getServletContext().getRequestDispatcher("/WEB-INF/logout.jsp").forward(request, response);
            HttpSession session = request.getSession();
            session.invalidate();
-           response.setHeader("Refresh","5 ; URL=http://localhost:8080/WebApplication/LoginServlet");
+           response.setHeader("Refresh"," 5 ; URL=http://localhost:8080/WebApplication/LoginServlet");
            
     }
 
